@@ -10,7 +10,9 @@ import static ba.unsa.etf.rpr.ExpressionEvaluator.parsedString;
  **/
 public class App {
     public static void main(String[] args) throws RuntimeException {
-
+/**
+ * expression is invalid if there is no whitespace
+ **/
        try{
             int length = args.length;
             if(length %2==0) {
