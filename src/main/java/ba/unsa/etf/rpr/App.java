@@ -15,18 +15,9 @@ public class App {
  **/
 
        try{
-            int length = args.length;
-            if(length %2==0) {
-                throw new RuntimeException();
-            }
-            String string = null;
-            int i=0;
-            while(i!=args.length-1){
-                string+= args[i].concat("+");
-                i++;
-            }
-           ExpressionEvaluator.evaluate(string);
-           double result = ExpressionEvaluator.evaluate(string);
+
+           double result = ExpressionEvaluator.evaluate(args[0]);
+           System.out.println("Result: "+result);
         }
        catch(RuntimeException e){
            System.out.println(e);

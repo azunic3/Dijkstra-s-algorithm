@@ -9,18 +9,7 @@ import static org.junit.jupiter.api.Assertions.*;
 /**
  * unit tests for relevant methods of ExpressionEvaluator class
  */
-class ExpressionEvaluatorTest extends RuntimeException{
-    /**
-     * testing auxiliary method parsedString
-     * it is expected that method will split string sent as a parameter into separated expressions
-     */
-    @Test
-    void testparsedString (){
-        String[] expected = new String[] {"(", "6", "/", "3", ")", "*", "2"};
-        String[] result = ExpressionEvaluator.parsedString("( 6 / 3 ) * 2");
-        assertEquals(expected, result);
-    }
-
+class ExpressionEvaluatorTest {
     /**
      * testing all required arithmetic operators on a simple and more complex expressions:
      */
@@ -71,6 +60,15 @@ class ExpressionEvaluatorTest extends RuntimeException{
         double r=  ExpressionEvaluator.evaluate("( 2 * ( 7 / 5 )"); ;
         assertThrows(IllegalArgumentException.class,() ->ExpressionEvaluator.evaluate(" ( 6 / 0 ) "),"Dividing by 0");
         assertEquals(1.4, r);
+    }
+    /**
+     * testing auxiliary method parsedString
+     * it is expected that method will split string sent as a parameter into separated expressions
+     **/
+    @Test void testparsedString (){
+        String[] expected = new String[] {"(", "7", "-", "4", ")"};
+        String[] result = ExpressionEvaluator.parsedString("( 7 - 4 )");
+        assertArrayEquals(expected, result);
     }
 
 

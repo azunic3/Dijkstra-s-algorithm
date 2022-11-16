@@ -15,12 +15,11 @@ public class ExpressionEvaluator {
     private static Stack<String> ops = new Stack<>();
 
     /**
-     * parsing string and putting words in an array
+     * parsing String by whitespaces and putting words in an array
      * @param s
      * @return s.split
      */
     public static String[] parsedString(String s){
-        String [] c = s.split(" "); //napravi novi element u stacku kad naidje na razmak
         return s.split(" ");
     }
 
@@ -67,8 +66,6 @@ public class ExpressionEvaluator {
             else {
                         vals.push(Double.parseDouble(e));
                     }
-
-
             }
  return vals.pop();
 }
