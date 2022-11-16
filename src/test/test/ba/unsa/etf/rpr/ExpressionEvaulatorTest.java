@@ -3,6 +3,7 @@ package ba.unsa.etf.rpr;
 import ba.unsa.etf.rpr.*;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.function.Executable;
+import static org.junit.jupiter.api.Assertions.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 /**
@@ -13,7 +14,8 @@ class ExpressionEvaluatorTest extends RuntimeException{
      * testing auxiliary method parsedString
      * it is expected that method will split string sent as a parameter into separated expressions
      */
-    @Test void testparsedString (){
+    @Test
+    void testparsedString (){
         String[] expected = new String[] {"(", "6", "/", "3", ")", "*", "2"};
         String[] result = ExpressionEvaluator.parsedString("( 6 / 3 ) * 2");
         assertEquals(expected, result);
@@ -23,40 +25,53 @@ class ExpressionEvaluatorTest extends RuntimeException{
      * testing all required arithmetic operators on a simple and more complex expressions:
      */
 
-    @Test void testevaluate1 (){
+    @Test
+    void testevaluate1 (){
         double expected = 3;
         double result = ExpressionEvaluator.evaluate("( ( 4 / 4 ) + 2 )");
         assertEquals(expected, result);
     }
 
-    @Test void testevaluate2 (){
+    @Test
+    void testevaluate2 (){
         double expected = 170;
         double result = ExpressionEvaluator.evaluate("( ( 9 - 4 ) * ( 2 * ( 8 + 9 ) ) )");
         assertEquals(expected, result);
     }
+    @Test
+    void testevaluate6 (){
+        double expected = 20;
+        double result = ExpressionEvaluator.evaluate("( sqrt ( 9 ) + 17 )");
+        assertEquals(expected, result);
+    }
 
-    @Test void testevaluate3 (){
+    @Test
+    void testevaluate3 (){
         double expected = -27;
         double result = ExpressionEvaluator.evaluate("( ( ( 2 / 2 ) + 2 ) - ( 5 * 6 ) )");
         assertEquals(expected, result);
     }
 
-    @Test void testevaluate4 (){
+    @Test
+    void testevaluate4 (){
         double expected = 0;
-        double result = ExpressionEvaluator.evaluate("( ( ( 3 / 2 ) * 3) - ( 9 / 2 ) )");
+        double result = ExpressionEvaluator.evaluate("( ( ( 3 / 2 ) * 3 ) - ( 9 / 2 ) )");
         assertEquals(expected, result);
     }
 
-    @Test void testevaluate5 (){
+    @Test
+    void testevaluate5 (){
         double expected = 2.8;
-        double result = ExpressionEvaluator.evaluate("( 2 * ( 7 / 5 )");
+        double result = ExpressionEvaluator.evaluate("( 2 * ( 7 / 5 ) )");
         assertEquals(expected, result);
     }
-@Test void testevaluate6(){
-    double result= ExpressionEvaluator.evaluate("{ ( 3 x 2 ) }");
-    assertEquals(RuntimeException.class, result);
-}
 
+    @Test
+    void postaviNeispravanParametar() {
+        double r=  ExpressionEvaluator.evaluate("( 2 * ( 7 / 5 )"); ;
+        assertThrows(IllegalArgumentException.class,() ->ExpressionEvaluator.evaluate(" ( 6 / 0 ) "),"Dijeljenje s 0");
+        assertEquals(2.8, r);
+    }
 
 
 

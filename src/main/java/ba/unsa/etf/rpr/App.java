@@ -13,6 +13,7 @@ public class App {
 /**
  * expression is invalid if there is no whitespace
  **/
+
        try{
             int length = args.length;
             if(length %2==0) {
@@ -20,8 +21,8 @@ public class App {
             }
             String string = null;
             int i=0;
-            while(i!=args.length){
-                string+= args[i] + " ";
+            while(i!=args.length-1){
+                string+= args[i].concat("+");
                 i++;
             }
            ExpressionEvaluator.evaluate(string);
