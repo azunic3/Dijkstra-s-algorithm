@@ -15,7 +15,6 @@ public class App {
  **/
 
        try{
-
            double result = ExpressionEvaluator.evaluate(args[0]);
            System.out.println("Result: "+result);
         }
