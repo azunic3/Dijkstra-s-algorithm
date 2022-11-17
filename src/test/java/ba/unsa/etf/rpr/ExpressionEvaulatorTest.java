@@ -60,8 +60,6 @@ class ExpressionEvaluatorTest {
         double result = ExpressionEvaluator.evaluate("( 6 + sqrt ( 16 ) )");
         assertEquals(expected, result);
      }
-     //ili moze gore u ovom padajucem meniju
-    //nisam nista u app promijenila sad cu
 
     void setInvalidParameter() {
         double r=  ExpressionEvaluator.evaluate("( 2 * ( 7 / 5 )"); ;

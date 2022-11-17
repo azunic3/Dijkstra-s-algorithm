@@ -63,9 +63,6 @@ public class ExpressionEvaluator {
                     } else if (e != "-" || e != "+" || e != "*" || e != "/" || e != "(" || e != ")" || e != "sqrt") {
                         throw new RuntimeException();
                     }
-                    else {
-                        System.out.println("Ja instruktor");
-                    }
             vals.push(v);}
             else {
                         vals.push(Double.parseDouble(e));

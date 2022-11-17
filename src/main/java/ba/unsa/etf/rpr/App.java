@@ -18,13 +18,10 @@ public class App {
            double result = ExpressionEvaluator.evaluate(args[0]);
            System.out.println("Result: "+result);
         }
-       //kad bih znala deklarisat
 
        catch(RuntimeException e){
            System.out.println(e);
         }
-        System.out.println("result");
-       //ne moze bit greska ako hoces da pushah zato
     }
-//nije se tamo promijenilo jer nisam push, commit je samo za lokalno da se mijenja
+
 }
