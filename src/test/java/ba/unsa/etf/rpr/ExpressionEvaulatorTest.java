@@ -56,10 +56,12 @@ class ExpressionEvaluatorTest {
     }
      @Test
      void testevaluete7(){
-        double expected = 9;
-        double result = ExpressionEvaluator.evaluate("( 5 + sqrt ( 16 ) )");
+        double expected = 10;
+        double result = ExpressionEvaluator.evaluate("( 6 + sqrt ( 16 ) )");
         assertEquals(expected, result);
      }
+     //ili moze gore u ovom padajucem meniju
+    //nisam nista u app promijenila sad cu
 
     void setInvalidParameter() {
         double r=  ExpressionEvaluator.evaluate("( 2 * ( 7 / 5 )"); ;

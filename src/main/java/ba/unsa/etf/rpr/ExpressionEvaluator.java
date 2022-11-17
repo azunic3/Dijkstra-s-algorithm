@@ -31,6 +31,7 @@ public class ExpressionEvaluator {
      * @param string
      * @return value of expression sent as a parameter of evaluate method
      */
+    //da nesto promijenim beze lafo
     public static Double evaluate(String string)  {
         String[] niz = (parsedString(string));
         for (String e : niz) {
@@ -62,11 +63,15 @@ public class ExpressionEvaluator {
                     } else if (e != "-" || e != "+" || e != "*" || e != "/" || e != "(" || e != ")" || e != "sqrt") {
                         throw new RuntimeException();
                     }
+                    else {
+                        System.out.println("Ja instruktor");
+                    }
             vals.push(v);}
             else {
                         vals.push(Double.parseDouble(e));
                     }
             }
+
  return vals.pop();
 }
 }
