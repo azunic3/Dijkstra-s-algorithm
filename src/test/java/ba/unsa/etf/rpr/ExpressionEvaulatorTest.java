@@ -5,11 +5,11 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 /**
  * unit tests for relevant methods of ExpressionEvaluator class
- */
+ **/
 class ExpressionEvaluatorTest {
     /**
      * testing all required arithmetic operators on a simple and more complex expressions:
-     */
+     **/
 
     @Test
     void testevaluate1 (){
@@ -26,9 +26,8 @@ class ExpressionEvaluatorTest {
     }
     @Test
     void testevaluate3 (){
-        double expected = 20;
-        double result = ExpressionEvaluator.evaluate("( sqrt ( 9 ) + 17 )");
-        assertEquals(expected, result);
+        String expected = " ";
+        assertThrows(RuntimeException.class, ()->ExpressionEvaluator.evaluate(expected), "An empty parameter");
     }
 
     @Test
@@ -47,9 +46,8 @@ class ExpressionEvaluatorTest {
 
     @Test
     void testevaluate6 (){
-        double expected = 2.8;
-        double result = ExpressionEvaluator.evaluate("( 2 * ( 7 / 5 ) )");
-        assertEquals(expected, result);
+        String expected = "{ ( 5 * 5 ) ";
+        assertThrows(RuntimeException.class, ()->ExpressionEvaluator.evaluate(expected), "Invalid expression");
     }
      @Test
      void testevaluete7(){
