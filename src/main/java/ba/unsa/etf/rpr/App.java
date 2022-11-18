@@ -4,7 +4,7 @@ import java.util.Scanner;
 import static ba.unsa.etf.rpr.ExpressionEvaluator.parsedString;
 
 /**
- * @version 1.0
+ * @version 1.7
  * @author Azra Žunić
  * implementing auxiliary method parsedString from ExpressionEvaluator
  **/
@@ -16,6 +16,7 @@ public class App {
 
        try{
            double result = ExpressionEvaluator.evaluate(args[0]);
+           System.out.println(ExpressionEvaluator.evaluate((args[0])));
            System.out.println("Result: "+result);
         }
 
