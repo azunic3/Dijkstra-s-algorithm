@@ -4,8 +4,8 @@ import java.util.Stack;
 
 /**
  * @author Azra Žunić
- * @version 1.0
- * method ExpressionEvaluator used for calculating Dijkstr algorithm
+ * @version 1.2
+ * method ExpressionEvaluator used for calculating Dijkstra algorithm
  * code mainly copied from task on c2
  * objects are inserted and removed according to the first-in first-out (FIFO) principle.
  */
@@ -16,7 +16,7 @@ public class ExpressionEvaluator {
 
     /**
      * parsing String by whitespaces and putting words in an array
-     * @param s
+     * @param s that we need to split by whitespace into words
      * @return s.split
      */
     public static String[] parsedString(String s){
@@ -28,12 +28,14 @@ public class ExpressionEvaluator {
      * covering all input cases with if - else as defined in a task
      * using Java String equals() Method
      * checking if there is other input except the specified ones
-     * @param string
+     * @param string that we need to parse
      * @return value of expression sent as a parameter of evaluate method
      */
-    //da nesto promijenim beze lafo
+
     public static Double evaluate(String string)  {
         String[] niz = (parsedString(string));
+        int rparenthesis=0;
+        int lparenthesis=0;
         for (String e : niz) {
             if (e.equals("(")) ;
             else if (e.equals("+")) {
@@ -47,7 +49,6 @@ public class ExpressionEvaluator {
             } else if (e.equals("sqrt")) {
                 ops.push(e);
             } else if (e.equals(")")) {
-
                     String op = ops.pop();
                     Double v = vals.pop();
                     if (op.equals("+")) {
@@ -61,13 +62,21 @@ public class ExpressionEvaluator {
                     } else if (op.equals("sqrt")) {
                        v= Math.sqrt(v);
                     } else if (e != "-" || e != "+" || e != "*" || e != "/" || e != "(" || e != ")" || e != "sqrt") {
-                        throw new RuntimeException();
+                        throw new IllegalArgumentException("Illegal parametres");
                     }
+                    //checking if there is same number of right and left brackets
+                    else if(e.equals("(")){
+                        rparenthesis++; }
+                    else if (e.equals(")")){
+                        lparenthesis++;}
+
             vals.push(v);}
             else {
                         vals.push(Double.parseDouble(e));
                     }
             }
+        if(rparenthesis!=lparenthesis)
+            throw new RuntimeException("Illegal parameter");
 
  return vals.pop();
 }

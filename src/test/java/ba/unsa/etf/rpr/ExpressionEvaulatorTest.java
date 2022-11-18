@@ -1,9 +1,6 @@
 package ba.unsa.etf.rpr;
 
-import ba.unsa.etf.rpr.*;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.function.Executable;
-import static org.junit.jupiter.api.Assertions.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 /**
@@ -61,8 +58,8 @@ class ExpressionEvaluatorTest {
         assertEquals(expected, result);
      }
 
-    void setInvalidParameter() {
-        double r=  ExpressionEvaluator.evaluate("( 2 * ( 7 / 5 )"); ;
+    void testInvalidParameter() {
+        double r=  ExpressionEvaluator.evaluate("( 2 * ( 7 / 5 )");
         assertThrows(IllegalArgumentException.class,() ->ExpressionEvaluator.evaluate(" ( 6 / 0 ) "),"Dividing by 0");
         assertEquals(1.4, r);
     }
