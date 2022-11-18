@@ -72,11 +72,4 @@ class ExpressionEvaluatorTest {
         String[] result = ExpressionEvaluator.parsedString("( 7 - 4 )");
         assertArrayEquals(expected, result);
     }
-
-
-
-
-
-
-
 }
