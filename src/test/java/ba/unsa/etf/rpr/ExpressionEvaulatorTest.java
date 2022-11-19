@@ -57,7 +57,6 @@ class ExpressionEvaluatorTest {
      }
     @Test
     void testevaluete8(){
-
         assertThrows(RuntimeException.class, ()->ExpressionEvaluator.evaluate("( 1 + + 2 )"), "Invalid expression");
 
     }
