@@ -12,6 +12,7 @@ public class App {
        try{
            double result = ExpressionEvaluator.evaluate(args[0]);
            System.out.println(ExpressionEvaluator.evaluate((args[0])));
+           //printing result is not required
            //System.out.println("Result: " + result);
         }
        catch(RuntimeException e){
