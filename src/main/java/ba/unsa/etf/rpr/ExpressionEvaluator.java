@@ -36,6 +36,9 @@ public class ExpressionEvaluator {
         String[] niz = (parsedString(string));
         int rparenthesis=0;
         int lparenthesis=0;
+        int numofnum=0;
+        int numofsqrt=0;
+        int numofoper=0;
         for (String e : niz) {
             //checking if there is same number of right and left brackets
             if(e.equals("(")){
@@ -45,16 +48,23 @@ public class ExpressionEvaluator {
             if (e.equals("("));
             else if (e.equals("+")) {
                 ops.push(e);
+                numofoper++;
             } else if (e.equals("-")) {
                 ops.push(e);
+                numofoper++;
             } else if (e.equals("*")) {
                 ops.push(e);
+                numofoper++;
             } else if (e.equals("/")) {
                 ops.push(e);
+                numofoper++;
             } else if (e.equals("sqrt")) {
                 ops.push(e);
+                numofsqrt++;
             } else if (e.equals(")")) {
-                    String op = ops.pop();
+                if(numofnum+numofsqrt==numofoper)
+                    throw new RuntimeException("Illegal parameter");
+                String op = ops.pop();
                     Double v = vals.pop();
                     if (op.equals("+")) {
                         v = vals.pop() + v;
@@ -72,6 +82,7 @@ public class ExpressionEvaluator {
             vals.push(v);}
             else {
                         vals.push(Double.parseDouble(e));
+                        numofnum++;
                     }
             }
         if(rparenthesis!=lparenthesis)
