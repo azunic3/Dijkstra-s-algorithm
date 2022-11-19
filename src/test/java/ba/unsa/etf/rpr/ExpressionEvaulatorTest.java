@@ -55,11 +55,11 @@ class ExpressionEvaluatorTest {
         double result = ExpressionEvaluator.evaluate("( 6 + sqrt ( 16 ) )");
         assertEquals(expected, result);
      }
+    @Test
+    void testevaluete8(){
 
-    void testInvalidParameter() {
-        double r=  ExpressionEvaluator.evaluate("( 2 * ( 7 / 5 )");
-        assertThrows(IllegalArgumentException.class,() ->ExpressionEvaluator.evaluate(" ( 6 / 0 ) "),"Dividing by 0");
-        assertEquals(1.4, r);
+        assertThrows(RuntimeException.class, ()->ExpressionEvaluator.evaluate("( 1 + + 2 )"), "Invalid expression");
+
     }
     /**
      * testing auxiliary method parsedString
