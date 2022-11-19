@@ -63,6 +63,10 @@ class ExpressionEvaluatorTest {
     void testvaluete9(){
             assertThrows(RuntimeException.class, ()->ExpressionEvaluator.evaluate("( 1 + + sqrt ( 2 ) )"), "Invalid expression");
     }
+    @Test
+    void testvaluete10(){
+        assertThrows(RuntimeException.class, ()->ExpressionEvaluator.evaluate("( 1 1 + 1 )"), "Invalid expression");
+    }
     /**
      * testing auxiliary method parsedString
      * it is expected that method will split string sent as a parameter into separated expressions
