@@ -58,7 +58,10 @@ class ExpressionEvaluatorTest {
     @Test
     void testevaluete8(){
         assertThrows(RuntimeException.class, ()->ExpressionEvaluator.evaluate("( 1 + + 2 )"), "Invalid expression");
-
+    }
+    @Test
+    void testvaluete9(){
+            assertThrows(RuntimeException.class, ()->ExpressionEvaluator.evaluate("( 1 + + sqrt ( 2 ) )"), "Invalid expression");
     }
     /**
      * testing auxiliary method parsedString
