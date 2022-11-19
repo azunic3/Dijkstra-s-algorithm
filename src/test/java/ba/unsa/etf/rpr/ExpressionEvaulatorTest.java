@@ -49,12 +49,6 @@ class ExpressionEvaluatorTest {
         String expected = "{ ( 5 * 5 ) ";
         assertThrows(RuntimeException.class, ()->ExpressionEvaluator.evaluate(expected), "Invalid expression");
     }
-     @Test
-     void testevaluete7(){
-        double expected = 10;
-        double result = ExpressionEvaluator.evaluate("( 6 + sqrt ( 16 ) )");
-        assertEquals(expected, result);
-     }
     @Test
     void testevaluete8(){
         assertThrows(RuntimeException.class, ()->ExpressionEvaluator.evaluate("( 1 + + 2 )"), "Invalid expression");
